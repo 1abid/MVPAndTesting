@@ -3,6 +3,7 @@ package app.demo.skill.home.com.mvpandtesting.notes;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,6 +22,8 @@ import app.demo.skill.home.com.mvpandtesting.data.Note;
 import app.demo.skill.home.com.mvpandtesting.data.NoteRepositories;
 import app.demo.skill.home.com.mvpandtesting.data.NoteServicesApiImpl;
 
+import app.demo.skill.home.com.mvpandtesting.noteDetail.NoteDetailActivity;
+import app.demo.skill.home.com.mvpandtesting.noteDetail.NoteDetailFragment;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -139,5 +142,11 @@ public class NotesFragment extends Fragment implements NoteContract.view {
   @Override public void showAddNote() {
       Intent addNoteIntent = new Intent(getContext() , AddNoteActivity.class);
       startActivityForResult(addNoteIntent , REQUEST_ADD_NOTE);
+  }
+
+  @Override public void showNoteDetailUi(@NonNull String noteId) {
+    Intent noteDetailIntent = new Intent(getContext() , NoteDetailActivity.class);
+    noteDetailIntent.putExtra(NoteDetailActivity.EXTRA_NOTE_ID , noteId);
+    startActivity(noteDetailIntent);
   }
 }

@@ -17,6 +17,8 @@ public interface NoteContract {
     void showNotes(List<Note> notes);
 
     void showAddNote();
+
+    void showNoteDetailUi(@NonNull String noteId);
   }
 
   public interface userActionListener {

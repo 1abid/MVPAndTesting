@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import app.demo.skill.home.com.mvpandtesting.data.NoteRepository;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
@@ -67,8 +68,7 @@ public class AddNoteFragment extends Fragment implements AddNoteContract.view {
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
-    mUserActionLisnter = new AddNotePresenter(
-        NoteRepositories.getInMemoryRepoInstance(new NoteServicesApiImpl()), this , new ImgFileImp());
+    mUserActionLisnter = new AddNotePresenter(NoteRepositories.getInMemoryRepoInstance(new NoteServicesApiImpl()), this , new ImgFileImp());
 
     FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab_add_notes);
     fab.setImageResource(R.drawable.ic_done);
@@ -99,10 +99,12 @@ public class AddNoteFragment extends Fragment implements AddNoteContract.view {
   public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
       case R.id.take_picture:
+
         try {
           mUserActionLisnter.captureImage();
         } catch (IOException ioe) {
           if (getView() != null) {
+            ioe.printStackTrace();
             Snackbar.make(getView(), getString(R.string.take_picture_error),
                 Snackbar.LENGTH_LONG).show();
           }

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="app.demo.skill.home.com.mvpandtesting">
+          package="app.demo.skill.home.com.mvpandtesting">
+
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
   <application
       android:allowBackup="true"
@@ -9,16 +12,19 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
-    <activity android:name=".notes.NotesActivity"
+    <activity
+        android:name=".notes.NotesActivity"
         android:theme="@style/AppTheme.OverlapSystemBar">
       <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
+        <action android:name="android.intent.action.MAIN"/>
 
-        <category android:name="android.intent.category.LAUNCHER" />
+        <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <activity android:name=".stats.StatisticsActivity" />
-    <activity android:name=".addNote.AddNoteActivity"></activity>
+    <activity android:name=".stats.StatisticsActivity"/>
+    <activity android:name=".addNote.AddNoteActivity"/>
+    <activity android:name=".noteDetail.NoteDetailActivity">
+    </activity>
   </application>
 
 </manifest>

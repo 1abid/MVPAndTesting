@@ -46,6 +46,6 @@ public class NotePresenter implements userActionListener {
   }
 
   @Override public void showNoteDetail(@NonNull Note requestedNote) {
-
+      mNotesView.showNoteDetailUi(requestedNote.getmID());
   }
 }
