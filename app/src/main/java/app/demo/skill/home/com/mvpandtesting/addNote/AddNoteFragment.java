@@ -67,8 +67,7 @@ public class AddNoteFragment extends Fragment implements AddNoteContract.view {
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
-    mUserActionLisnter = new AddNotePresenter(
-        NoteRepositories.getInMemoryRepoInstance(new NoteServicesApiImpl()), this , new ImgFileImp());
+    mUserActionLisnter = new AddNotePresenter(Injection.provideNotesRepository(), this , Injection.provideImageFile());
 
     FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab_add_notes);
     fab.setImageResource(R.drawable.ic_done);
@@ -99,10 +98,12 @@ public class AddNoteFragment extends Fragment implements AddNoteContract.view {
   public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
       case R.id.take_picture:
+
         try {
           mUserActionLisnter.captureImage();
         } catch (IOException ioe) {
           if (getView() != null) {
+            ioe.printStackTrace();
             Snackbar.make(getView(), getString(R.string.take_picture_error),
                 Snackbar.LENGTH_LONG).show();
           }
