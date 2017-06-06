@@ -9,7 +9,7 @@ import java.util.List;
  * mail : la4508@gmail.com
  */
 
-public class NoteContract {
+public interface NoteContract {
 
   public interface view {
     void showProgress(boolean show);

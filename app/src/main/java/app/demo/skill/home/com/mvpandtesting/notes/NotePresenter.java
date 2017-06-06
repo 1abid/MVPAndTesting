@@ -42,7 +42,7 @@ public class NotePresenter implements userActionListener {
   }
 
   @Override public void addNewNote() {
-
+    mNotesView.showAddNote();
   }
 
   @Override public void showNoteDetail(@NonNull Note requestedNote) {

@@ -8,7 +8,7 @@ import java.io.IOException;
  * mail : la4508@gmail.com
  */
 
-public class AddNoteContract {
+public interface AddNoteContract {
 
   interface view{
 

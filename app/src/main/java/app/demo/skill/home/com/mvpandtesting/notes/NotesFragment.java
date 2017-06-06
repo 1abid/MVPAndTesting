@@ -16,7 +16,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import app.demo.skill.home.com.mvpandtesting.Injection;
 import app.demo.skill.home.com.mvpandtesting.R;
+import app.demo.skill.home.com.mvpandtesting.addNote.AddNoteActivity;
 import app.demo.skill.home.com.mvpandtesting.data.Note;
+import app.demo.skill.home.com.mvpandtesting.data.NoteRepositories;
+import app.demo.skill.home.com.mvpandtesting.data.NoteServicesApiImpl;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +51,7 @@ public class NotesFragment extends Fragment implements NoteContract.view {
   @Override public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     mListAdapter = new NotesAdapter(mItemListener , new ArrayList<Note>(0));
-    mActionListener = new NotePresenter(Injection.provideNotesRepository() , this);
+    mActionListener = new NotePresenter(NoteRepositories.getInMemoryRepoInstance(new NoteServicesApiImpl()), this);
   }
 
   NotesAdapter.NoteItemListener mItemListener = new NotesAdapter.NoteItemListener() {
@@ -133,6 +137,7 @@ public class NotesFragment extends Fragment implements NoteContract.view {
   }
 
   @Override public void showAddNote() {
-
+      Intent addNoteIntent = new Intent(getContext() , AddNoteActivity.class);
+      startActivityForResult(addNoteIntent , REQUEST_ADD_NOTE);
   }
 }
