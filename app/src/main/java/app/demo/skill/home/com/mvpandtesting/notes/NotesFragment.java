@@ -54,7 +54,7 @@ public class NotesFragment extends Fragment implements NoteContract.view {
   @Override public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     mListAdapter = new NotesAdapter(mItemListener , new ArrayList<Note>(0));
-    mActionListener = new NotePresenter(NoteRepositories.getInMemoryRepoInstance(new NoteServicesApiImpl()), this);
+    mActionListener = new NotePresenter(Injection.provideNotesRepository(), this);
   }
 
   NotesAdapter.NoteItemListener mItemListener = new NotesAdapter.NoteItemListener() {

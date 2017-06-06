@@ -70,6 +70,7 @@ public class AddNoteFragment extends Fragment implements AddNoteContract.view {
     super.onActivityCreated(savedInstanceState);
     mUserActionLisnter = new AddNotePresenter(NoteRepositories.getInMemoryRepoInstance(new NoteServicesApiImpl()), this , new ImgFileImp());
 
+
     FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab_add_notes);
     fab.setImageResource(R.drawable.ic_done);
     fab.setOnClickListener(new View.OnClickListener() {

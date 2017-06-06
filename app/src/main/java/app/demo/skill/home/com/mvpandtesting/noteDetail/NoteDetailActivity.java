@@ -6,13 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import app.demo.skill.home.com.mvpandtesting.R;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
 public class NoteDetailActivity extends AppCompatActivity {
 
   public static final String EXTRA_NOTE_ID = "NOTE_ID";
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_detail);
@@ -30,8 +31,8 @@ public class NoteDetailActivity extends AppCompatActivity {
   }
 
   private void initFragment(NoteDetailFragment instance) {
-    FragmentManager fragmentManager = getSupportFragmentManager() ;
-    fragmentManager.beginTransaction().add(R.id.contentFrame , instance).commit();
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    fragmentManager.beginTransaction().add(R.id.contentFrame, instance).commit();
   }
 
   @Override public boolean onSupportNavigateUp() {
