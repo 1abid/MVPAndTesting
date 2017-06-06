@@ -10,6 +10,19 @@ import android.support.v4.app.Fragment;
 
 public class AddNoteFragment extends Fragment implements AddNoteContract.view {
 
+  private static AddNoteFragment instance ;
+
+  public AddNoteFragment() {
+  }
+
+  public static AddNoteFragment getInstance(){
+
+    if(instance == null)
+      instance = new AddNoteFragment();
+
+
+    return instance ;
+  }
 
   @Override public void showEmptyNoteError() {
 

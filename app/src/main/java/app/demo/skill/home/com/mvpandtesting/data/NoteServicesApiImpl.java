@@ -2,6 +2,7 @@ package app.demo.skill.home.com.mvpandtesting.data;
 
 import android.os.Handler;
 import android.support.v4.util.ArrayMap;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +20,7 @@ public class NoteServicesApiImpl implements NoteServicesApi {
     Handler handler = new Handler();
     handler.postDelayed(new Runnable() {
       @Override public void run() {
-        noteCallback.onLoaded((List<Note>) NOTES_SERVICE_DATA.values());
+        noteCallback.onLoaded(new ArrayList<Note>(NOTES_SERVICE_DATA.values()));
       }
     } , SERVICE_LATENCY_IN_MILLIS);
   }

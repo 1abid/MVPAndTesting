@@ -14,7 +14,7 @@ public class NoteContract {
   public interface view {
     void showProgress(boolean show);
 
-    void loadNotes(List<Note> notes);
+    void showNotes(List<Note> notes);
 
     void showAddNote();
   }

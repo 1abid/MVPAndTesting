@@ -115,14 +115,21 @@ public class NotesFragment extends Fragment implements NoteContract.view {
     return root;
   }
 
-  @Override public void showProgress(boolean show) {
+  @Override public void showProgress(final boolean show) {
     if(getView() == null)
       return;
-    //final SwipeRefreshLayout refreshlayout = getView().findViewById(R.layout.ref)
+    final SwipeRefreshLayout refreshlayout =
+        (SwipeRefreshLayout) getView().findViewById(R.id.refresh_layout);
+
+    refreshlayout.post(new Runnable() {
+      @Override public void run() {
+        refreshlayout.setRefreshing(show);
+      }
+    });
   }
 
-  @Override public void loadNotes(List<Note> notes) {
-
+  @Override public void showNotes(List<Note> notes) {
+    mListAdapter.replaceData(notes);
   }
 
   @Override public void showAddNote() {
