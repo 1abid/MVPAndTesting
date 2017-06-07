@@ -68,7 +68,7 @@ public class AddNoteFragment extends Fragment implements AddNoteContract.view {
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
-    mUserActionLisnter = new AddNotePresenter(NoteRepositories.getInMemoryRepoInstance(new NoteServicesApiImpl()), this , new ImgFileImp());
+    mUserActionLisnter = new AddNotePresenter(Injection.provideNotesRepository(), this , Injection.provideImageFile());
 
 
     FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab_add_notes);

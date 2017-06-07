@@ -35,8 +35,10 @@ public class NoteDetailPresenter implements NoteDetailContract.userActionListene
       @Override public void onNoteLoaded(Note note) {
         mNoteDetailView.setProgressIndicator(false);
 
-        if(null == note)
+        if(null == note) {
+          mNoteDetailView.showMissingNote();
           return;
+        }
 
         shoeNoteDetail(note);
       }

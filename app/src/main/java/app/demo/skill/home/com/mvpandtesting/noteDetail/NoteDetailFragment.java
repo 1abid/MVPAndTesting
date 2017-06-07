@@ -57,7 +57,7 @@ public class NoteDetailFragment extends Fragment implements NoteDetailContract.v
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
 
-    View view = inflater.inflate(R.layout.fragment_addnote , container , false) ;
+    View view = inflater.inflate(R.layout.fragment_detail , container , false) ;
 
     mTitle = (TextView) view.findViewById(R.id.note_detail_title);
     mDescription = (TextView) view.findViewById(R.id.note_detail_description);
@@ -74,7 +74,7 @@ public class NoteDetailFragment extends Fragment implements NoteDetailContract.v
 
   @Override public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
-    mUserActionListener = new NoteDetailPresenter(NoteRepositories.getInMemoryRepoInstance(new NoteServicesApiImpl()), this);
+    mUserActionListener = new NoteDetailPresenter(Injection.provideNotesRepository() , this);
   }
 
   @Override public void setProgressIndicator(boolean active) {
