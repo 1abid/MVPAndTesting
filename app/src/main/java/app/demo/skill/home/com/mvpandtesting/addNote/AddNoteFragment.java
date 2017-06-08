@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import app.demo.skill.home.com.mvpandtesting.Injection;
 import app.demo.skill.home.com.mvpandtesting.data.NoteRepository;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -30,8 +31,6 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 
 import java.io.IOException;
-
-import app.demo.skill.home.com.mvpandtesting.Injection;
 import app.demo.skill.home.com.mvpandtesting.R;
 import app.demo.skill.home.com.mvpandtesting.data.NoteRepositories;
 import app.demo.skill.home.com.mvpandtesting.data.NoteServicesApiImpl;

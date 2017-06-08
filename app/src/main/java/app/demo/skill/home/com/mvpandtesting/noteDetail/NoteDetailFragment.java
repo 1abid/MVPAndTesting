@@ -74,7 +74,7 @@ public class NoteDetailFragment extends Fragment implements NoteDetailContract.v
 
   @Override public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
-    mUserActionListener = new NoteDetailPresenter(Injection.provideNotesRepository() , this);
+    mUserActionListener = new NoteDetailPresenter(Injection.provideNotesRepository(), this);
   }
 
   @Override public void setProgressIndicator(boolean active) {

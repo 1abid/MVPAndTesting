@@ -40,6 +40,10 @@ android {
     mock {
       java.srcDirs = ['src/mock/java', 'src/mock/java/']
     }
+
+    androidTestMock{
+      java.srcDirs = ['src/androidTestMock/java', 'src/androidTestMock/java/']
+    }
   }*/
 
   // Remove mockRelease as it's not needed.

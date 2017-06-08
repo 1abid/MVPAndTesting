@@ -1,5 +1,7 @@
 package app.demo.skill.home.com.mvpandtesting.noteDetail;
 
+import android.support.annotation.VisibleForTesting;
+import android.support.test.espresso.IdlingResource;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import app.demo.skill.home.com.mvpandtesting.R;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import app.demo.skill.home.com.mvpandtesting.util.EspressoIdlingResource;
 
 public class NoteDetailActivity extends AppCompatActivity {
 
@@ -38,5 +41,10 @@ public class NoteDetailActivity extends AppCompatActivity {
   @Override public boolean onSupportNavigateUp() {
     onBackPressed();
     return true;
+  }
+
+  @VisibleForTesting
+  public IdlingResource getCountingIdlingResource() {
+    return EspressoIdlingResource.getIdlingResource();
   }
 }
