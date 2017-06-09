@@ -34,8 +34,11 @@ public class NotePresenter implements userActionListener {
     mNoteRepository.getNotes(new NoteRepository.LoadNotesCallback() {
       @Override public void onNotesLoaded(List<Note> notes) {
         EspressoIdlingResource.decrement();
-
         mNotesView.showProgress(false);
+
+        if(notes == null)
+          return;
+
         mNotesView.showNotes(notes);
       }
     });

@@ -1,4 +1,4 @@
-package app.demo.skill.home.com.mvpandtesting.noteDetail;
+package app.demo.skill.home.com.mvpandtesting.noteDetail.noteDetail;
 
 import android.content.Intent;
 import android.support.test.espresso.Espresso;
@@ -8,6 +8,7 @@ import android.support.test.runner.AndroidJUnit4;
 import app.demo.skill.home.com.mvpandtesting.R;
 import app.demo.skill.home.com.mvpandtesting.data.FakeNoteServiceApiImpl;
 import app.demo.skill.home.com.mvpandtesting.data.Note;
+import app.demo.skill.home.com.mvpandtesting.noteDetail.NoteDetailActivity;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
